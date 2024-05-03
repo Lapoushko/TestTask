@@ -9,11 +9,11 @@ interface PictureDataController {
     /**
      * Установить recyclerView
      */
-    public fun setupRecyclerView()
+    fun setupRecyclerView()
 
     /**
      * Обновить коллекцию изображений
      * @param pictures
      */
-    public fun updatePictures(pictures: MutableList<Picture>)
+    fun updatePictures(pictures: MutableList<Picture>)
 }
