@@ -9,6 +9,10 @@ appcompat = "1.6.1"
 material = "1.11.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
+googleSearchResultsJava = "2.0.2"
+picasso = "3.0.0-alpha05"
+picassoVersion = "2.71828"
+secretsGradlePlugin = "2.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -19,6 +23,10 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+google-search-results-java = { group = "com.github.serpapi", name = "google-search-results-java", version.ref = "googleSearchResultsJava" }
+picasso = { group = "com.squareup.picasso3", name = "picasso", version.ref = "picasso" }
+secrets-gradle-plugin = { module = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin", version.ref = "secretsGradlePlugin" }
+squareup-picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picassoVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
