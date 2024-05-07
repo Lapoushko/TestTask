@@ -1,6 +1,8 @@
-package com.example.testtask
+package com.example.testtask.util
 
 import android.widget.ImageView
+import com.example.testtask.PicturesFragment
+import com.example.testtask.model.Picture
 import com.squareup.picasso.Picasso
 
 /**
@@ -14,5 +16,10 @@ class LoaderPicture {
         Picasso.get()
             .load(path)
             .into(image)
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(picture: Picture) = PicturesFragment()
     }
 }
