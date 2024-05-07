@@ -5,14 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.testtask.LoaderPicture
 import com.example.testtask.R
 import com.example.testtask.model.Picture
+import com.example.testtask.util.LoaderPicture
 
 /**
  * Адаптер для отображения данных
  */
-class RecyclerViewAdapter(private val pictures: List<Picture>) :
+class RecyclerViewAdapter(private val pictures: List<Picture>, private val listener: OnPictureClickListener) :
     RecyclerView.Adapter<RecyclerViewAdapter.RouteViewHolder>() {
     class RouteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val imageView: ImageView = itemView.findViewById(R.id.picture_view)
@@ -41,9 +41,10 @@ class RecyclerViewAdapter(private val pictures: List<Picture>) :
      * Отображение данных в определённой позиции
      */
     override fun onBindViewHolder(holder: RouteViewHolder, position: Int) {
-        if (itemCount > 0){
-            val picture = pictures[position]
-            loaderPicture.loadImage(picture.image, holder.imageView)
+        val picture = pictures[position]
+        loaderPicture.loadImage(picture.image, holder.imageView)
+        holder.imageView.setOnClickListener {
+            listener.onPictureClick(picture)
         }
     }
 
