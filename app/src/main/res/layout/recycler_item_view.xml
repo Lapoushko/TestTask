@@ -17,24 +17,12 @@
             android:id="@+id/picture_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="0dp"
             android:scaleType="center"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="80dp">
 
         </ImageView>
-
-        <Button
-            android:id="@+id/button_link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/text_button_link"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/picture_view">
-
-        </Button>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

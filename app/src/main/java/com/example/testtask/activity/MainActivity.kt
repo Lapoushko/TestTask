@@ -1,14 +1,17 @@
-package com.example.testtask
+package com.example.testtask.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.testtask.R
+import com.example.testtask.component.OnPictureClickListener
 import com.example.testtask.controller.PictureDataControllerImpl
 import com.example.testtask.databinding.ActivityMainBinding
+import com.example.testtask.model.Picture
 import com.example.testtask.service.SerperServiceImpl
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnPictureClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var serperService: SerperServiceImpl
     private lateinit var pictureDataController: PictureDataControllerImpl
@@ -17,6 +20,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//        supportFragmentManager
+//            .beginTransaction()
+//            .replace(R.id.picture_holder, PicturesFragment.newInstance())
+//            .commit()
 
         initServicesAndControllers()
         setupListeners()
@@ -28,7 +36,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun initServicesAndControllers() {
         serperService = SerperServiceImpl()
-        pictureDataController = PictureDataControllerImpl(serperService, binding.recyclerView)
+        pictureDataController = PictureDataControllerImpl(serperService, binding.recyclerView, this)
         pictureDataController.setupRecyclerView()
     }
 
@@ -50,5 +58,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
-
+    override fun onPictureClick(pictures: List<Picture>, pos: Int) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.picture_holder, PicturesFragment.newInstance(pictures, pos))
+                .addToBackStack(null)
+                .commit()
+        }
 }

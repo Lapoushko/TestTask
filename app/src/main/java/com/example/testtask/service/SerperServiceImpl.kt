@@ -19,6 +19,7 @@ class SerperServiceImpl(private val client: OkHttpClient = OkHttpClient()) : Ser
     private val mediaType = MediaType.parse("application/json")
     private val pictures = mutableListOf<Picture>()
     override fun searchImagesByQuery(query: String) {
+        pictures.clear()
         if (query.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
                 val body = RequestBody.create(mediaType, "{\"q\":\"${query}\"}")

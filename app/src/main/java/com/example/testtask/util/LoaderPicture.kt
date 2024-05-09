@@ -1,4 +1,4 @@
-package com.example.testtask
+package com.example.testtask.util
 
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
