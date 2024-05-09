@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.testtask.PicturesFragment
 import com.example.testtask.R
 import com.example.testtask.component.OnPictureClickListener
 import com.example.testtask.controller.PictureDataControllerImpl
@@ -59,10 +58,10 @@ class MainActivity : AppCompatActivity(), OnPictureClickListener {
             insets
         }
     }
-    override fun onPictureClick(picture: Picture) {
+    override fun onPictureClick(pictures: List<Picture>, pos: Int) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.picture_holder, PicturesFragment.newInstance(picture))
+                .replace(R.id.picture_holder, PicturesFragment.newInstance(pictures, pos))
                 .addToBackStack(null)
                 .commit()
         }
