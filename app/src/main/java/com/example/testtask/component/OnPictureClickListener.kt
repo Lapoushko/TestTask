@@ -9,5 +9,5 @@ interface OnPictureClickListener {
     /**
      * Нажатие на изображение
      */
-    fun onPictureClick(picture: Picture)
+    fun onPictureClick(pictures: List<Picture>, pos: Int)
 }
