@@ -13,8 +13,8 @@ import com.example.testtask.util.LoaderPicture
  * Адаптер для отображения данных
  */
 class RecyclerViewAdapter(private val pictures: List<Picture>, private val listener: OnPictureClickListener) :
-    RecyclerView.Adapter<RecyclerViewAdapter.RouteViewHolder>() {
-    class RouteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    RecyclerView.Adapter<RecyclerViewAdapter.PictureViewHolder>() {
+    class PictureViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val imageView: ImageView = itemView.findViewById(R.id.picture_view)
     }
     private val loaderPicture = LoaderPicture()
@@ -22,12 +22,12 @@ class RecyclerViewAdapter(private val pictures: List<Picture>, private val liste
     /**
      * Установка адаптера при создании
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RouteViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PictureViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(
                 R.layout.recycler_item_view, parent, false
             )
-        return RouteViewHolder(view)
+        return PictureViewHolder(view)
     }
 
     /**
@@ -40,11 +40,11 @@ class RecyclerViewAdapter(private val pictures: List<Picture>, private val liste
     /**
      * Отображение данных в определённой позиции
      */
-    override fun onBindViewHolder(holder: RouteViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PictureViewHolder, position: Int) {
         val picture = pictures[position]
         loaderPicture.loadImage(picture.image, holder.imageView)
         holder.imageView.setOnClickListener {
-            listener.onPictureClick(picture)
+            listener.onPictureClick(pictures, position)
         }
     }
 
