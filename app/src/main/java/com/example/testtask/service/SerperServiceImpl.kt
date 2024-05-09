@@ -22,7 +22,8 @@ class SerperServiceImpl(private val client: OkHttpClient = OkHttpClient()) : Ser
         pictures.clear()
         if (query.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
-                val body = RequestBody.create(mediaType, "{\"q\":\"${query}\"}")
+                val body = RequestBody.create(mediaType, "{\"q\":\"${query}\",\"page\":1}")
+                //"{\"q\":\"${query}\",\"page\":1}"
 
                 val request = Request.Builder()
                     .url("https://google.serper.dev/images")
