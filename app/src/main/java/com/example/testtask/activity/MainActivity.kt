@@ -21,11 +21,6 @@ class MainActivity : AppCompatActivity(), OnPictureClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        supportFragmentManager
-//            .beginTransaction()
-//            .replace(R.id.picture_holder, PicturesFragment.newInstance())
-//            .commit()
-
         initServicesAndControllers()
         setupListeners()
         setupWindowInsets()
