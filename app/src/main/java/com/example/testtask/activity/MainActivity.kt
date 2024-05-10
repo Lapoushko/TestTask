@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), OnPictureClickListener {
     private fun setupListeners() {
         binding.searchButton.setOnClickListener {
             val query = binding.search.text.toString()
-            serperService.searchImagesByQuery(query)
+            serperService.searchImagesByQuery(query, 1)
             pictureDataController.updatePictures(serperService.getPictures())
         }
     }

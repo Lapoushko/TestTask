@@ -9,7 +9,7 @@ interface SerperService {
     /**
      * Получить изображение по запросу
      */
-    public fun searchImagesByQuery(query: String)
+    public fun searchImagesByQuery(query: String, page: Int)
 
     /**
      * Вернуть список изображений

@@ -11,18 +11,18 @@ import okhttp3.RequestBody
 import org.json.JSONObject
 
 
-const val API_KEY = ""
+const val API_KEY = "0d97c79c76e7c330822f377cfcd7e0e72454648d"
 /**
  * Сервис, который находит нужные изображения в Google
  */
 class SerperServiceImpl(private val client: OkHttpClient = OkHttpClient()) : SerperService {
     private val mediaType = MediaType.parse("application/json")
     private val pictures = mutableListOf<Picture>()
-    override fun searchImagesByQuery(query: String) {
+    override fun searchImagesByQuery(query: String, page: Int) {
         pictures.clear()
         if (query.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
-                val body = RequestBody.create(mediaType, "{\"q\":\"${query}\",\"page\":1}")
+                val body = RequestBody.create(mediaType, "{\"q\":\"${query}\",\"page\":${page}}")
                 //"{\"q\":\"${query}\",\"page\":1}"
 
                 val request = Request.Builder()
