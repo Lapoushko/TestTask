@@ -1,6 +1,7 @@
 package com.example.testtask.service
 
 import com.example.testtask.model.Picture
+import com.example.testtask.repository.PictureRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,15 +16,14 @@ const val API_KEY = ""
 /**
  * Сервис, который находит нужные изображения в Google
  */
-class SerperServiceImpl(private val client: OkHttpClient = OkHttpClient()) : SerperService {
+class SerperServiceImpl(private val client: OkHttpClient = OkHttpClient(),
+                        private val pictureRepository: PictureRepository)
+    : SerperService {
     private val mediaType = MediaType.parse("application/json")
-    private val pictures = mutableListOf<Picture>()
-    override fun searchImagesByQuery(query: String) {
-        pictures.clear()
+    override fun searchImagesByQuery(query: String, page: Int) {
         if (query.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
-                val body = RequestBody.create(mediaType, "{\"q\":\"${query}\",\"page\":1}")
-                //"{\"q\":\"${query}\",\"page\":1}"
+                val body = RequestBody.create(mediaType, "{\"q\":\"${query}\",\"page\":${page}}")
 
                 val request = Request.Builder()
                     .url("https://google.serper.dev/images")
@@ -41,13 +41,9 @@ class SerperServiceImpl(private val client: OkHttpClient = OkHttpClient()) : Ser
                 for (i in 0 until jsonArray.length()) {
                     val domain = jsonArray.getJSONObject(i).get("googleUrl").toString()
                     val imageUrl = jsonArray.getJSONObject(i).get("imageUrl").toString()
-                    pictures.add(Picture(domain, imageUrl))
+                    pictureRepository.addPicture(Picture(domain, imageUrl))
                 }
             }
         }
-    }
-
-    override fun getPictures(): MutableList<Picture> {
-        return pictures
     }
 }

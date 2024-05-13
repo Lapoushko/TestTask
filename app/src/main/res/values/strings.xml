@@ -2,4 +2,5 @@
     <string name="app_name">TestTask</string>
     <string name="text_button_link">Open link</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
 </resources>

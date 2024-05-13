@@ -1,7 +1,6 @@
 package com.example.testtask.util
 
 import android.widget.ImageView
-import com.example.testtask.R
 import com.squareup.picasso.Picasso
 
 /**
@@ -14,7 +13,6 @@ class LoaderPicture {
     fun loadImage(path: String, image: ImageView){
         Picasso.get()
             .load(path)
-            .error(R.drawable.error)
             .into(image)
         Picasso.get().setIndicatorsEnabled(true)
     }
