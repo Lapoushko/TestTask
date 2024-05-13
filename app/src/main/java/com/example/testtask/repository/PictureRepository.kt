@@ -5,21 +5,19 @@ import com.example.testtask.model.Picture
 /**
  * Репозиторий изображений
  */
-class PictureRepository {
-    /**
-     * Список изображений
-     */
-    var pictures = mutableListOf<Picture>()
-        get() = field
-        private set
-
+interface PictureRepository {
     /**
      * Добавить изображения в список
      */
-    fun addPicture(picture: Picture) = pictures.add(picture)
+    fun addPicture(picture: Picture)
 
     /**
      * Очистить список изображений
      */
-    fun clearPictures() = pictures.clear()
+    fun deletePictures()
+
+    /**
+     * Получить все изображения
+     */
+    fun getPictures() : MutableList<Picture>
 }
