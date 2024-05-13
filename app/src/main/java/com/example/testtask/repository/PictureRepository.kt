@@ -8,6 +8,7 @@ import com.example.testtask.model.Picture
 interface PictureRepository {
     /**
      * Добавить изображения в список
+     * @param picture Изображение
      */
     fun addPicture(picture: Picture)
 
@@ -18,6 +19,7 @@ interface PictureRepository {
 
     /**
      * Получить все изображения
+     * @return Список изображений
      */
     fun getPictures() : MutableList<Picture>
 }

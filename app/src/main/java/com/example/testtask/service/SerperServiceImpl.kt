@@ -11,10 +11,14 @@ import okhttp3.Request
 import okhttp3.RequestBody
 import org.json.JSONObject
 
-
+/**
+ * Константа API ключа
+ */
 const val API_KEY = ""
 /**
  * Сервис, который находит нужные изображения в Google
+ * @param client Клиент для HTTP вызовов
+ * @param pictureRepository репозиторий изображений
  */
 class SerperServiceImpl(private val client: OkHttpClient = OkHttpClient(),
                         private val pictureRepository: PictureRepository)

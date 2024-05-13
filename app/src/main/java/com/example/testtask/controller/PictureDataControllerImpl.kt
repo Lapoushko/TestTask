@@ -9,6 +9,9 @@ import com.example.testtask.repository.PictureRepository
 
 /**
  * Реализует интерфейс RecyclerDataController
+ * @param recyclerView RecyclerView активности
+ * @param activity Основная активность
+ * @param pictureRepository Репозиторий изображений
  */
 class PictureDataControllerImpl(
     private val recyclerView: RecyclerView,

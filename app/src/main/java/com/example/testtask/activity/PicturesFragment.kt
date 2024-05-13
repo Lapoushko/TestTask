@@ -23,8 +23,9 @@ class PicturesFragment : Fragment() {
     private lateinit var pictures: List<Picture>
     private lateinit var viewPager: ViewPager2
     private lateinit var loaderPicture: LoaderPicture
-    private var position: Int = 0
     private lateinit var pathWeb: String
+
+    private var position: Int = 0
     private val callback = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)

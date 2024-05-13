@@ -11,6 +11,8 @@ import com.example.testtask.util.LoaderPicture
 
 /**
  * Адаптер для отображения данных
+ * @param pictures Список изображений
+ * @param listener Слушатель нажатия на изображения
  */
 class RecyclerViewAdapter(private val pictures: List<Picture>,
                           private val listener: OnPictureClickListener) :
@@ -33,6 +35,7 @@ class RecyclerViewAdapter(private val pictures: List<Picture>,
 
     /**
      * Количество элементов
+     * @return получить количество изображений
      */
     override fun getItemCount(): Int {
         return pictures.size

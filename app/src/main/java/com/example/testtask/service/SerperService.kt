@@ -6,6 +6,8 @@ package com.example.testtask.service
 interface SerperService {
     /**
      * Получить изображение по запросу
+     * @param query Запрос
+     * @param page Страница
      */
     fun searchImagesByQuery(query: String, page: Int)
 }

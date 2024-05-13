@@ -9,6 +9,8 @@ import com.squareup.picasso.Picasso
 class LoaderPicture {
     /**
      * загрузить изображение
+     * @param path путь к изображению
+     * @param image ImageView изображения
      */
     fun loadImage(path: String, image: ImageView){
         Picasso.get()

@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), OnPictureClickListener {
     private lateinit var pictureDataController: PictureDataControllerImpl
 
     private val pictureRepository: PictureRepository = PictureRepositoryImpl()
-    private var page = 1
+    private var page = 1 //Номер страницы
     private var query: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
