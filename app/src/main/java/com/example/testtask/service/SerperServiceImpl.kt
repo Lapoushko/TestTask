@@ -12,7 +12,7 @@ import okhttp3.RequestBody
 import org.json.JSONObject
 
 
-const val API_KEY = "0d97c79c76e7c330822f377cfcd7e0e72454648d"
+const val API_KEY = ""
 /**
  * Сервис, который находит нужные изображения в Google
  */
