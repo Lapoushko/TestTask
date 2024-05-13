@@ -5,21 +5,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.testtask.activity.MainActivity
 import com.example.testtask.component.RecyclerViewAdapter
 import com.example.testtask.model.Picture
-import com.example.testtask.service.SerperServiceImpl
+import com.example.testtask.repository.PictureRepository
 
 /**
  * Реализует интерфейс RecyclerDataController
  */
-class PictureDataControllerImpl(private val serperService: SerperServiceImpl,
+class PictureDataControllerImpl(
     private val recyclerView: RecyclerView,
-    private val activity: MainActivity) : PictureDataController {
+    private val activity: MainActivity,
+    private val pictureRepository: PictureRepository
+) : PictureDataController {
 
     private lateinit var pictures: MutableList<Picture>
 
     override fun setupRecyclerView() {
         this.recyclerView.setHasFixedSize(true)
         this.recyclerView.layoutManager = GridLayoutManager(recyclerView.context,1)
-        pictures = serperService.getPictures()
+        pictures = pictureRepository.getPictures()
         this.recyclerView.adapter = RecyclerViewAdapter(pictures, activity)
     }
 
