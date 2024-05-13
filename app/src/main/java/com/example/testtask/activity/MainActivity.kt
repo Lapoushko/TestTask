@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity(), OnPictureClickListener {
         binding.searchButton.setOnClickListener {
             if (binding.search.text.toString()!= query) {
                 pictureRepository.deletePictures()
+                page = 1
                 query = binding.search.text.toString()
             }
             serperService.searchImagesByQuery(query, page)
