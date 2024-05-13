@@ -13,7 +13,6 @@ class LoaderPicture {
     fun loadImage(path: String, image: ImageView){
         Picasso.get()
             .load(path)
-//            .error(R.drawable.error)
             .into(image)
         Picasso.get().setIndicatorsEnabled(true)
     }
