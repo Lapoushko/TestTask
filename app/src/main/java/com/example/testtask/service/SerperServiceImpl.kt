@@ -15,14 +15,16 @@ import org.json.JSONObject
  * Константа API ключа
  */
 const val API_KEY = ""
+
 /**
  * Сервис, который находит нужные изображения в Google
  * @param client Клиент для HTTP вызовов
  * @param pictureRepository репозиторий изображений
  */
-class SerperServiceImpl(private val client: OkHttpClient = OkHttpClient(),
-                        private val pictureRepository: PictureRepository)
-    : SerperService {
+class SerperServiceImpl(
+    private val client: OkHttpClient = OkHttpClient(),
+    private val pictureRepository: PictureRepository
+) : SerperService {
     private val mediaType = MediaType.parse("application/json")
     override fun searchImagesByQuery(query: String, page: Int) {
         if (query.isNotEmpty()) {

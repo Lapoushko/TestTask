@@ -5,7 +5,7 @@ import com.example.testtask.model.Picture
 /**
  * Работа с изображениями
  */
-class PictureRepositoryImpl:PictureRepository {
+class PictureRepositoryImpl : PictureRepository {
     /**
      * Список всех изображений
      */

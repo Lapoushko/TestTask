@@ -16,6 +16,6 @@ class LoaderPicture {
         Picasso.get()
             .load(path)
             .into(image)
-        Picasso.get().setIndicatorsEnabled(true)
+        Picasso.get().setIndicatorsEnabled(true) //Проверка, что находится ли изображение в кэше
     }
 }

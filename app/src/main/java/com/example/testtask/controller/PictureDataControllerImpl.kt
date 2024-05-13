@@ -23,17 +23,16 @@ class PictureDataControllerImpl(
 
     override fun setupRecyclerView() {
         this.recyclerView.setHasFixedSize(true)
-        this.recyclerView.layoutManager = GridLayoutManager(recyclerView.context,1)
+        this.recyclerView.layoutManager = GridLayoutManager(recyclerView.context, 1)
         pictures = pictureRepository.getPictures()
         this.recyclerView.adapter = RecyclerViewAdapter(pictures, activity)
     }
 
     override fun updatePictures(pictures: MutableList<Picture>) {
         this.pictures = pictures
-        if (this.recyclerView.adapter is RecyclerViewAdapter){
+        if (this.recyclerView.adapter is RecyclerViewAdapter) {
             (this.recyclerView.adapter as RecyclerViewAdapter).notifyDataSetChanged()
-        }
-        else{
+        } else {
             this.recyclerView.adapter = RecyclerViewAdapter(pictures, activity)
         }
     }

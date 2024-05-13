@@ -15,7 +15,7 @@ import com.example.testtask.util.LoaderPicture
  */
 class ViewPageAdapter(private val pictures: List<Picture>) :
     RecyclerView.Adapter<ViewPageAdapter.PageViewHolder>() {
-    class PageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class PageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val actionImage: ImageView = itemView.findViewById(R.id.action_image)
     }
 
@@ -41,5 +41,5 @@ class ViewPageAdapter(private val pictures: List<Picture>) :
      * Количество изображений
      * @return получить количество изображений
      */
-    override fun getItemCount(): Int  = pictures.size
+    override fun getItemCount(): Int = pictures.size
 }

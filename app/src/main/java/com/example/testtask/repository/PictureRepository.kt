@@ -21,5 +21,5 @@ interface PictureRepository {
      * Получить все изображения
      * @return Список изображений
      */
-    fun getPictures() : MutableList<Picture>
+    fun getPictures(): MutableList<Picture>
 }

@@ -14,12 +14,15 @@ import com.example.testtask.util.LoaderPicture
  * @param pictures Список изображений
  * @param listener Слушатель нажатия на изображения
  */
-class RecyclerViewAdapter(private val pictures: List<Picture>,
-                          private val listener: OnPictureClickListener) :
+class RecyclerViewAdapter(
+    private val pictures: List<Picture>,
+    private val listener: OnPictureClickListener
+) :
     RecyclerView.Adapter<RecyclerViewAdapter.PictureViewHolder>() {
-    class PictureViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class PictureViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.picture_view)
     }
+
     private val loaderPicture = LoaderPicture()
 
     /**
